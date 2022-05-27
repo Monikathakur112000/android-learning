@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.home.HomeFragment"
+   >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.fruithub.fragment.home.HomeViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nestedConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/homeScreenImageView"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_11sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_menu_button_image"
+                    app:layout_constraintBottom_toBottomOf="@id/homeScreenWelcomeTextView"
+                    app:layout_constraintStart_toStartOf="@id/nestedConstraint"
+                    app:layout_constraintTop_toTopOf="@id/homeScreenWelcomeTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/homeScreenWelcomeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/ttnorms_regular"
+                    android:text="@string/welcomeTextHomeScreen"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintBottom_toTopOf="@id/homeScreenSearchEditText"
+                    app:layout_constraintStart_toEndOf="@id/homeScreenImageView"
+                    app:layout_constraintTop_toTopOf="@id/nestedConstraint" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/homeCardView"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_9sdp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/_100sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/homeScreenWelcomeTextView"
+                    app:layout_constraintEnd_toEndOf="@id/nestedConstraint"
+                    app:layout_constraintTop_toTopOf="@id/homeScreenWelcomeTextView">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/addToBasketImageView"
+                        android:layout_width="27dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_basket_image" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/homeScreenSearchEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_56sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_14sdp"
+                    android:background="@drawable/btn_pressed"
+                    android:backgroundTint="#F5F5F5"
+                    android:drawableStart="@drawable/ic__search_image"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/ttnorms_regular"
+                    android:hint="@string/searchFruitCombos"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/filterCardView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeScreenWelcomeTextView" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/filterCardView"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_51sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_9sdp"
+                    app:cardBackgroundColor="#F7F7FC"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/homeScreenSearchEditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/homeScreenSearchEditText"
+                    app:layout_constraintTop_toTopOf="@id/homeScreenSearchEditText">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/homeScreenFilterButton"
+                        android:layout_width="@dimen/_19sdp"
+                        android:layout_height="@dimen/_17sdp"
+                        android:layout_gravity="center"
+
+                        android:src="@drawable/ic_filter_image" />
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeScreenRecyclerView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingStart="@dimen/_11sdp"
+                android:paddingEnd="@dimen/_11sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:clipToPadding="false"
+                android:background="@color/light_grey"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nestedConstraint"
+                tools:listitem="@layout/home_screen_item_view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/recommendedTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/ttnorms_regular"
+                android:text="@string/recommended"
+                android:textColor="@color/paua"
+                android:textSize="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeScreenRecyclerView1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/lineImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:src="@drawable/line_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommendedTextView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeScreenRecyclerView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingEnd="@dimen/_7sdp"
+                android:clipToPadding = "false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommendedTextView"
+                tools:listitem="@layout/home_screen_recommend_item_view" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:textSize="@dimen/_16ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeScreenRecyclerView2"
+                app:tabTextColor="#253F66"
+                app:tabSelectedTextColor="#27214D"
+                app:tabIndicatorFullWidth="false"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                app:tabTextAppearance="@style/tab_text"
+                />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:clipToPadding = "false"
+               app:layout_constraintTop_toBottomOf="@id/tabLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
