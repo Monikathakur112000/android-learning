@@ -10,7 +10,7 @@
         android:layout_marginBottom="@dimen/_4sdp"
         android:clickable="true"
         android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
         android:background="@drawable/btn_clicked"
         android:gravity="center"
         android:backgroundTint="#FAFAFA"
